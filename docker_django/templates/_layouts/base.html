@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <div class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'shop:product_list' %}">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% block footer%}
+            <hr>
+            <p align="center"><i>2017</i></p>
+        {% endblock %}
+
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/popper.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        {% block js %}
+        {% endblock %}
+    </body>
+</html>
