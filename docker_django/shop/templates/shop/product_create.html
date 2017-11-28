@@ -1,0 +1,10 @@
+{% extends "_layouts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Products - Create{% endblock %}
+
+{% block content %}
+    <h2>Add new product</h2>
+    {% crispy form %}
+{% endblock %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'shop',
 ]
 
@@ -128,3 +129,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(DJANGO_ROOT, 'static_files')
+
+# Crispy form template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

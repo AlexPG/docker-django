@@ -24,4 +24,8 @@
     {% else %}
         <h2>There are no products yet</h2>
     {% endif %}
+    <a href="{% url 'shop:product_create' %}" 
+    class="btn btn-primary active">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Product
+    </a>
 {% endblock %}
