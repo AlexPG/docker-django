@@ -3,5 +3,25 @@
 {% block title %}Shop - Products{% endblock %}
 
 {% block content %}
-    <h2>Product List</h2>
+    {% if products %}
+        <h2>Product list</h2>
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in products %}
+                    <tr>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h2>There are no products yet</h2>
+    {% endif %}
 {% endblock %}
