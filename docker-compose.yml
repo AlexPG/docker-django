@@ -12,13 +12,24 @@ services:
     build: ./docker_django
     volumes:
       - ./docker_django:/src/
+      - ./static:/static/
     env_file:
       - ./docker_django/.env
-    command: gunicorn -w 2 -b :8000 docker_django.wsgi
-    ports:
-      - 8000:8000
+    command: gunicorn -w 2 -b :8001 docker_django.wsgi
+    expose:
+      - 8001
     depends_on:
       - db
+
+  nginx:
+    image: nginx:1.13.5
+    ports:
+      - 8001:80
+    volumes:
+      - ./docker_django/conf.d:/etc/nginx/conf.d
+      - ./static:/static/
+    depends_on:
+      - web
 
 volumes:
   dbdata:

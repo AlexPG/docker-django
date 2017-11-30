@@ -3,3 +3,9 @@ venv
 
 # Python 3 bytecode
 __pycache__
+
+# Logs files
+logs/
+
+# Static folder generated when collectstatic
+/static/
