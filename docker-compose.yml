@@ -1,0 +1,24 @@
+version: '3'
+
+services:  
+  db:
+    image: postgres:9.3
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    env_file:
+      - ./docker_django/.env
+
+  web:
+    build: ./docker_django
+    volumes:
+      - ./docker_django:/src/
+    env_file:
+      - ./docker_django/.env
+    command: gunicorn -w 2 -b :8000 docker_django.wsgi
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
